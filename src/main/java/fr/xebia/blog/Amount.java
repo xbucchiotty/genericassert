@@ -8,7 +8,7 @@ public class Amount {
     private final Currency currency;
     private final BigDecimal value;
 
-    public Amount(Currency currency, BigDecimal value) {
+    public Amount(BigDecimal value, Currency currency) {
         this.currency = currency;
         this.value = value;
     }
@@ -22,6 +22,6 @@ public class Amount {
     }
 
     public Amount add(BigDecimal value) {
-        return new Amount(this.currency, this.value.add(value));
+        return new Amount(this.value.add(value), this.currency);
     }
 }
