@@ -1,12 +1,12 @@
 package fr.xebia.blog;
 
 import com.google.common.base.Optional;
-import org.fest.assertions.Assertions;
 import org.fest.assertions.GenericAssert;
 
 import java.math.BigDecimal;
 import java.util.Currency;
 
+import static fr.xebia.blog.Assertions.assertThat;
 import static java.lang.String.format;
 
 public class OptionalAmountAsserter extends GenericAssert<OptionalAmountAsserter, Optional<Amount>> {
@@ -19,10 +19,6 @@ public class OptionalAmountAsserter extends GenericAssert<OptionalAmountAsserter
 
     OptionalAmountAsserter(Optional<Amount> actual) {
         super(OptionalAmountAsserter.class, actual);
-    }
-
-    public static OptionalAmountAsserter assertThat(Optional<Amount> actual) {
-        return new OptionalAmountAsserter(actual);
     }
 
     public OptionalAmountAsserter isAbsent() {

@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.util.Currency;
 
+import static fr.xebia.blog.Assertions.assertThat;
+
 public class AmountAccumulatorTest {
 
     public static final BigDecimal _5 = new BigDecimal("5");
@@ -17,7 +19,7 @@ public class AmountAccumulatorTest {
     public void should_get_absent_for_empty_accumulator() {
         Optional<Amount> actualAmount = new AmountAccumulator().getAmount();
 
-        OptionalAmountAsserter.assertThat(actualAmount).isAbsent();
+        assertThat(actualAmount).isAbsent();
     }
 
     @Test
@@ -30,7 +32,7 @@ public class AmountAccumulatorTest {
                 .getAmount();
 
         //PRESENCE OF AMOUNT
-        OptionalAmountAsserter.assertThat(actualAmount)
+        assertThat(actualAmount)
                 .hasCurrency(USD)
                 .hasValue(_10);
     }
@@ -45,6 +47,6 @@ public class AmountAccumulatorTest {
                 .accumulate(_10_EUR)
                 .getAmount();
 
-        OptionalAmountAsserter.assertThat(actualAmount).isAbsent();
+        assertThat(actualAmount).isAbsent();
     }
 }
