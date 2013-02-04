@@ -16,8 +16,8 @@
         </dependency>
         <dependency>
             <groupId>org.easytesting</groupId>
-            <artifactId>fest-assert</artifactId>
-            <version>1.4</version>
+            <artifactId>fest-assert-core</artifactId>
+            <version>2.0M8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -27,5 +27,27 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.easytesting</groupId>
+                <artifactId>maven-fest-assertion-generator-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-assertions</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <packages>
+                        <param>fr.xebia.blog</param>
+                    </packages>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

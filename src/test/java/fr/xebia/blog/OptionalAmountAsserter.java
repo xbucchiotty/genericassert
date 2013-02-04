@@ -1,15 +1,13 @@
 package fr.xebia.blog;
 
-import com.google.common.base.Optional;
-import org.fest.assertions.GenericAssert;
-
 import java.math.BigDecimal;
 import java.util.Currency;
 
-import static fr.xebia.blog.Assertions.assertThat;
-import static java.lang.String.format;
+import com.google.common.base.Optional;
 
-public class OptionalAmountAsserter extends GenericAssert<OptionalAmountAsserter, Optional<Amount>> {
+import org.fest.assertions.api.AbstractAssert;
+
+public class OptionalAmountAsserter extends AbstractAssert<OptionalAmountAsserter, Optional<Amount>> {
 
     private static final String NULL_ERROR = "The amount should not be null";
     private static final String ABSENCE_ERROR = "The amount should exists";
@@ -18,7 +16,7 @@ public class OptionalAmountAsserter extends GenericAssert<OptionalAmountAsserter
     private static final String VALUE_ERROR = "Value of the amount";
 
     OptionalAmountAsserter(Optional<Amount> actual) {
-        super(OptionalAmountAsserter.class, actual);
+        super(actual, OptionalAmountAsserter.class);
     }
 
     public OptionalAmountAsserter isAbsent() {
